@@ -1,0 +1,84 @@
+nav.main-navigation {
+  position: relative;
+  border-right: 1px solid;
+  border-right-color: transparent;
+  animation: navigationBorder 200ms forwards;
+  animation-delay: 300ms;
+
+  &:before, &:after, .bg-block {
+    @include size(0, f);
+    @include pos(a, 0, 0, auto);
+    animation: navigationBg ease-in-out 200ms forwards;  
+  }
+  &:before, &:after {
+    content: '';
+  }
+  &:before {
+    z-index: 1;
+    background-color: rgba(color(blue), .6);
+  }
+  &:after {
+    z-index: 2;
+    background-color: rgba(color(light), .6);
+    animation-delay: 100ms;
+  }
+  .bg-block {
+    z-index: 3;
+    background-color: color(bg);
+    animation-delay: 150ms;
+  }
+
+  button.burger-container {
+    background-color: transparent;
+    border: none;
+    @include size(60px);
+    @include pos(a, 0);
+    margin: auto;
+    z-index: 4;
+    cursor: pointer;
+
+    i {
+      border-radius: 8px;
+      @include size(8px);
+      background-color: color(font);
+      @include pos(a, 0);
+      margin: auto;
+      opacity: 0;
+
+      &:first-child {
+        transform: translateX(40px);
+        background-color: color(blue);
+        animation: burgerEntrence 300ms ease-in-out forwards;
+        animation-delay: 300ms
+      }
+    }
+  } 
+}
+
+@keyframes navigationBg {
+  0% { width: 0; left: 0; }
+  100% { width: 100%; left: 0; }
+}
+
+@keyframes navigationBorder {
+  0% { border-right-color: transparent;  }
+  100% { border-right-color: color(blue);  }
+}
+
+@keyframes burgerEntrence {
+  0% {
+    width: 8px;
+    transform: translateX(40px);
+    opacity: 0; 
+    background-color: color(blue);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    width: 50px;
+    opacity: 1;
+    transform: translateX(0);
+    background-color: color(font);
+  }
+}
