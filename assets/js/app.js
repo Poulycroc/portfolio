@@ -1,3 +1,4 @@
 import '../scss/app.scss';
+import { initStarfield } from './starfield.js';
 
-console.log('app loaded');
+initStarfield();
