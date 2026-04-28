@@ -1,4 +1,4 @@
-import { gsap } from 'gsap';
+import { gsap } from 'gsap'; // needed for registerPlugin
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,34 +37,33 @@ function resizeCanvas(canvas) {
   return dpr;
 }
 
-function drawStars(ctx, layers, scrollProgress, canvasHeight, dpr) {
+function drawStars(ctx, layers, scrollProgress, viewportHeight, dpr) {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-  const scrollHeight = canvasHeight;
+  const totalScroll = document.documentElement.scrollHeight - viewportHeight;
+
+  ctx.fillStyle = STAR_COLOR;
 
   for (const layer of layers) {
     ctx.globalAlpha = layer.opacity;
+    const yOffset = scrollProgress * layer.speed * totalScroll;
 
     for (const star of layer.stars) {
-      const yOffset = scrollProgress * layer.speed * scrollHeight;
-      let drawY = (star.y * dpr + yOffset * dpr) % (canvasHeight * dpr);
-      if (drawY < 0) drawY += canvasHeight * dpr;
+      let drawY = (star.y * dpr + yOffset * dpr) % (viewportHeight * dpr);
+      if (drawY < 0) drawY += viewportHeight * dpr;
 
       const drawX = star.x * dpr;
       const radius = layer.size * dpr;
 
       ctx.beginPath();
       if (layer.blur) {
-        // Simulate blur: draw a larger, fainter circle
         ctx.arc(drawX, drawY, radius * 2, 0, Math.PI * 2);
-        ctx.fillStyle = STAR_COLOR;
         ctx.globalAlpha = layer.opacity * 0.5;
         ctx.fill();
         ctx.globalAlpha = layer.opacity;
         ctx.beginPath();
       }
       ctx.arc(drawX, drawY, radius, 0, Math.PI * 2);
-      ctx.fillStyle = STAR_COLOR;
       ctx.fill();
     }
   }
@@ -73,32 +72,33 @@ function drawStars(ctx, layers, scrollProgress, canvasHeight, dpr) {
 }
 
 function initStarfield() {
+  if (document.getElementById('starfield')) return;
+
   const canvas = createCanvas();
   const ctx = canvas.getContext('2d');
   let dpr = resizeCanvas(canvas);
   let layers = generateStars(window.innerWidth, window.innerHeight);
   let lastProgress = -1;
+  let scrollProgress = 0;
 
   // Initial draw
   drawStars(ctx, layers, 0, window.innerHeight, dpr);
 
   // GSAP ScrollTrigger drives the parallax
-  const progressObj = { value: 0 };
-
   ScrollTrigger.create({
     trigger: document.documentElement,
     start: 'top top',
     end: 'bottom bottom',
-    scrub: 0.5,
+    scrub: true,
     onUpdate: (self) => {
-      progressObj.value = self.progress;
+      scrollProgress = self.progress;
     },
   });
 
   // Render loop — only redraws when scroll changed
   function tick() {
-    if (progressObj.value !== lastProgress) {
-      lastProgress = progressObj.value;
+    if (scrollProgress !== lastProgress) {
+      lastProgress = scrollProgress;
       drawStars(ctx, layers, lastProgress, window.innerHeight, dpr);
     }
     requestAnimationFrame(tick);
