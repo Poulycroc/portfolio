@@ -1,3 +1,8 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const STAR_COLOR = '#e4f0fb';
 
 const LAYERS = [
@@ -67,4 +72,49 @@ function drawStars(ctx, layers, scrollProgress, canvasHeight, dpr) {
   ctx.globalAlpha = 1;
 }
 
-export { LAYERS, STAR_COLOR, generateStars, createCanvas, resizeCanvas, drawStars };
+function initStarfield() {
+  const canvas = createCanvas();
+  const ctx = canvas.getContext('2d');
+  let dpr = resizeCanvas(canvas);
+  let layers = generateStars(window.innerWidth, window.innerHeight);
+  let lastProgress = -1;
+
+  // Initial draw
+  drawStars(ctx, layers, 0, window.innerHeight, dpr);
+
+  // GSAP ScrollTrigger drives the parallax
+  const progressObj = { value: 0 };
+
+  ScrollTrigger.create({
+    trigger: document.documentElement,
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 0.5,
+    onUpdate: (self) => {
+      progressObj.value = self.progress;
+    },
+  });
+
+  // Render loop — only redraws when scroll changed
+  function tick() {
+    if (progressObj.value !== lastProgress) {
+      lastProgress = progressObj.value;
+      drawStars(ctx, layers, lastProgress, window.innerHeight, dpr);
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  // Resize handler (debounced)
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      dpr = resizeCanvas(canvas);
+      layers = generateStars(window.innerWidth, window.innerHeight);
+      drawStars(ctx, layers, lastProgress, window.innerHeight, dpr);
+    }, 200);
+  });
+}
+
+export { initStarfield };
