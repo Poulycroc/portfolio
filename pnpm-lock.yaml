@@ -11,6 +11,9 @@ importers:
       '@poulycroc/sass-tools':
         specifier: github:Poulycroc/sass-tools
         version: sass-tools@https://codeload.github.com/Poulycroc/sass-tools/tar.gz/4964f41fc88388d50633ce2a4219694b3f745fc0
+      gsap:
+        specifier: ^3.15.0
+        version: 3.15.0
     devDependencies:
       sass:
         specifier: ^1.99.0
@@ -237,6 +240,9 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  gsap@3.15.0:
+    resolution: {integrity: sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==}
 
   immutable@5.1.5:
     resolution: {integrity: sha512-t7xcm2siw+hlUM68I+UEOK+z84RzmN59as9DZ7P1l0994DKUWV7UXBMQZVxaoMSRQ+PBZbHCOoBt7a2wxOMt+A==}
@@ -566,6 +572,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  gsap@3.15.0: {}
 
   immutable@5.1.5: {}
 

@@ -16,6 +16,7 @@
     "vite": "^8.0.10"
   },
   "dependencies": {
-    "@poulycroc/sass-tools": "github:Poulycroc/sass-tools"
+    "@poulycroc/sass-tools": "github:Poulycroc/sass-tools",
+    "gsap": "^3.15.0"
   }
 }
