@@ -22,7 +22,9 @@
 			</div>
 		</header>
 
-		<?= CONTENT; ?>
+		<main>
+			<?= CONTENT; ?>
+		</main>
 
 		<footer id="contact">
 			<div class="container flex flex-col items-center justify-center">
