@@ -1,0 +1,15 @@
+@use "breakpoints" as *;
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
+@use "@poulycroc/sass-tools/tools/rfs" as *;
+
+body {
+  font-family:
+    Helvetica Neue,
+    arial,
+    sans-serif;
+  color: var(--text);
+  @include rfs(16px);
+  font-weight: 400;
+  line-height: 170%;
+}

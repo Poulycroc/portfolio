@@ -1,0 +1,12 @@
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+
+header.main {
+  @include size(f, var(--header-height));
+  @include pos(fixed, 0, 0);
+
+  a.brand-logo {
+    display: block;
+    @include size(40px);
+    cursor: pointer;
+  }
+}
