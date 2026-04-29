@@ -13,3 +13,13 @@ body {
   font-weight: 400;
   line-height: 170%;
 }
+
+h1.page-title {
+  font-weight: 800;
+  @include rfs(60px);
+  font-family:
+    Helvetica Neue Bold,
+    Helvetica Neue,
+    arial,
+    sans-serif;
+}

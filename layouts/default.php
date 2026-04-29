@@ -1,6 +1,17 @@
-<html>
+<html lang="<?= LOCALE['LANGUAGE']; ?>">
 		<head>
+			<meta charset="utf-8" />
 			<title><?= relay('title') ?? SITE; ?></title>
+			<meta name="viewport" content="width=device-width,initial-scale=1" />
+			<meta name="description" content="<?= relay('metaDescription') ?? scribe('metaDescription'); ?>" />
+			<meta name="author" content="Maxime Bartier" />
+
+			<!-- Open Graph -->
+			<meta property="og:type" content="website" />
+			<meta property="og:title" content="<?= relay('title') ?? SITE; ?>" />
+			<meta property="og:description" content="<?= relay('metaDescription') ?? scribe('metaDescription'); ?>" />
+			<meta property="og:locale" content="<?= LOCALE['CODE']; ?>" />
+
 			<?= STYLES; ?>
 		</head>
 	<body>
@@ -14,12 +25,18 @@
 					<?php include APP['DIR'].'partials/logo.php'; ?>
 				</a>
 
-				<button type="button" class="burgerbtn">
-					<i></i>
-					<i></i>
-					<i></i>
+				<button 
+					id="burgerBtn"
+					type="button"
+					class="burgerbtn"
+				>
+					<?php for ($i = 0; $i < 4; $i++) { ?>
+						<i></i>
+					<?php } ?>
 				</button>
 			</div>
+
+			<div class="full-screen-menu" id="menuContainer"></div>
 		</header>
 
 		<main>

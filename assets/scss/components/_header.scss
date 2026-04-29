@@ -2,7 +2,7 @@
 
 header.main {
   @include size(f, var(--header-height));
-  @include pos(fixed, 0, 0);
+  @include pos(f, 0, 0, auto, 0);
 
   a.brand-logo {
     display: block;

@@ -24,13 +24,23 @@
 
 	</div>
 </section>
-<section class="my-experience">
-	<div class="container">
-
-	</div>
-</section>
 <section class="my-projects">
 	<div class="container">
-
+		<?php
+		$locale = defined('LOCALE') ? LOCALE['LANGUAGE'] : 'en';
+		foreach (HELPERS['projects'] as $slug => $project):
+			if (empty($project['showOnLanding'])) continue;
+			$article = content("projects/{$slug}/{$locale}.md") ?? content("projects/{$slug}/en.md");
+			if (!$article) continue;
+		?>
+			<a href="<?= path("/projects/{$slug}"); ?>" class="project-card">
+				<h3><?= $article['meta']['title']; ?></h3>
+				<div class="project-card-skills">
+					<?php foreach ($project['skills'] as $skill): ?>
+						<span><?= $skill; ?></span>
+					<?php endforeach; ?>
+				</div>
+			</a>
+		<?php endforeach; ?>
 	</div>
 </section>

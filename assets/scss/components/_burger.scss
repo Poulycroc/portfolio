@@ -7,6 +7,7 @@ button.burgerbtn {
   cursor: pointer;
   display: block;
   position: relative;
+  z-index: 100;
 
   & > i {
     @include size(30px, 4px);
@@ -18,10 +19,73 @@ button.burgerbtn {
     border-radius: 2px;
 
     &:first-child {
-      animation: burger-top-i-appear 300ms ease-out forwards;
+      animation: burger-top-i-appear 300ms ease-in forwards;
     }
     &:last-child {
-      animation: burger-bottom-i-appear 300ms ease-out 0.05s forwards;
+      animation: burger-bottom-i-appear 300ms ease-in 0.05s forwards;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      transition:
+        opacity 100ms ease-out,
+        transform 300ms ease-in-out;
+    }
+  }
+
+  &.active > i {
+    &:first-child {
+      animation: burger-top-i-appear 300ms ease-out reverse forwards;
+    }
+    &:last-child {
+      animation: burger-bottom-i-appear 300ms ease-out reverse forwards;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      opacity: 1;
+    }
+    &:nth-child(2) {
+      transform: rotate(45deg);
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.full-screen-menu {
+  @include pos(f, auto, 0, 0, 0);
+  @include size(100vw, 0);
+  overflow: hidden;
+  transition: height 300ms ease-in-out;
+  /* background-color: color-mix(in srgb, var(--bg) 20%, transparent); */
+  /* -webkit-backdrop-filter: blur(16px); */
+  /* backdrop-filter: blur(16px); */
+  background-color: var(--bg);
+
+  &::before,
+  &::after {
+    content: "";
+    @include pos(a, auto, 0, 0, 0);
+    @include size(f, 0);
+    background-color: var(--bg);
+    transition: height 300ms ease-in-out;
+  }
+  &::before {
+    z-index: 1;
+    background-color: var(--bg-lighter);
+    transition-delay: 0.05s;
+  }
+  &::after {
+    z-index: 2;
+    background-color: var(--bg);
+    transition-delay: 0.3s;
+  }
+
+  &.active {
+    &,
+    &::before,
+    &::after {
+      height: 100vh;
     }
   }
 }

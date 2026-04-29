@@ -6,9 +6,9 @@ gsap.registerPlugin(ScrollTrigger);
 const STAR_COLOR = '#e4f0fb';
 
 const LAYERS = [
-  { count: 80, size: 1, opacity: 0.25, speed: 0.05, blur: true },
-  { count: 40, size: 2, opacity: 0.5, speed: 0.15, blur: false },
-  { count: 20, size: 3, opacity: 0.85, speed: 0.35, blur: false },
+  { count: 30, size: 0.5, opacity: 0.15, speed: 0.05, blur: true },
+  { count: 15, size: 1, opacity: 0.3, speed: 0.15, blur: false },
+  { count: 8, size: 1.5, opacity: 0.5, speed: 0.35, blur: false },
 ];
 
 function generateStars(width, height) {

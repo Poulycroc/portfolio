@@ -1,4 +1,17 @@
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+
 body {
   background-color: var(--bg);
   color: var(--font);
+
+  main {
+    @include size(f, auto);
+    padding-top: var(--header-height);
+  }
+
+  footer {
+    @include size(f, auto);
+    margin-top: 40px;
+    padding: 24px 0;
+  }
 }

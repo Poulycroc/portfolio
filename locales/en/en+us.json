@@ -1,7 +1,8 @@
 {
-  "common": {
-    "appName": "Maxime Bartier's Portfolio",
-    "welcomeMessage": "Welcome to my portfolio! I'm Maxime Bartier, a passionate developer specializing in creating innovative solutions. Explore my projects and feel free to contact me to discuss potential collaborations."
-  },
-  "project-in-mind": "Have a project in mind? Let's talk!"
+  "appName": "Maxime Bartier's Portfolio",
+  "welcomeMessage": "Welcome to my portfolio! I'm Maxime Bartier, a passionate developer specializing in creating innovative solutions. Explore my projects and feel free to contact me to discuss potential collaborations.",
+  "metaDescription": "Maxime Bartier — Senior Full Stack Developer based in Namur, Belgium. 9+ years of experience with Laravel, Vue.js, React, Node.js and Ruby on Rails. Explore my projects and work.",
+  "project-in-mind": "Have a project in mind? Let's talk!",
+  "labels-role": "My Role",
+  "labels-techStack": "Tech Stack"
 }
