@@ -35,7 +35,7 @@ relay('metaDescription', $article['meta']['description'] ?? '');
 	</div>
 </section>
 
-<section class="project-detail">
+<section class="project-detail reveal">
 	<div class="project-block">
 		<?php if (! empty($article['meta']['description'])) { ?>
 			<div class="project-section">
@@ -73,7 +73,7 @@ relay('metaDescription', $article['meta']['description'] ?? '');
 	</div>
 </section>
 
-<section class="project-bento">
+<section class="project-bento reveal">
 	<div class="project-block">
 		<div class="bento-grid">
 			<?php

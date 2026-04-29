@@ -1,6 +1,11 @@
 # AI stuff
 .superpowers/
 docs/
+.claude/
+
+# dist assets
+scripts/*
+styles/*
 
 # Logs
 logs
