@@ -18,6 +18,13 @@ section.hero {
 
   .hero-content {
     max-width: 900px;
+    @include max-screen(#{bp(md)}) {
+      .btn-content {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
   }
 
   .hero-title {
@@ -26,6 +33,12 @@ section.hero {
       @include lH(60);
       &:last-child {
         padding-left: 40px;
+      }
+      @include max-screen(#{bp(sm)}) {
+        @include lH(38);
+        &:last-child {
+          padding-left: 20px;
+        }
       }
     }
   }
@@ -38,8 +51,8 @@ section.hero {
     }
   }
 
-  .hero-line--accent {
-    color: var(--bg-lighter);
+  .hero-line--accent,
+  .hero-line--main {
     font-weight: 900;
     @include rfs(100px);
     line-height: 1;
@@ -52,26 +65,21 @@ section.hero {
     text-transform: uppercase;
 
     @include max-screen(#{bp(md)}) {
-      @include rfs(60px);
+      @include rfs(64px);
+      letter-spacing: -1px;
     }
+
+    /* @include max-screen(#{bp(sm)}) { */
+    /*   @include rfs(48px); */
+    /* } */
+  }
+
+  .hero-line--accent {
+    color: var(--bg-lighter);
   }
 
   .hero-line--main {
     color: var(--font);
-    font-weight: 900;
-    @include rfs(100px);
-    line-height: 1;
-    letter-spacing: -2px;
-    font-family:
-      Helvetica Neue Bold,
-      Helvetica Neue,
-      arial,
-      sans-serif;
-    text-transform: uppercase;
-
-    @include max-screen(#{bp(md)}) {
-      @include rfs(60px);
-    }
   }
 
   .hero-subtitle {
@@ -80,6 +88,10 @@ section.hero {
     opacity: 0.6;
     max-width: 600px;
     margin-bottom: 32px;
+
+    @include max-screen(#{bp(sm)}) {
+      @include rfs(16px);
+    }
 
     strong {
       opacity: 1;
@@ -108,7 +120,6 @@ section.hero {
     }
   }
 
-  // Fade-in for subtitle, button, bullets
   .hero-fade {
     opacity: 0;
     transform: translateY(20px);
@@ -148,19 +159,7 @@ section.hero {
     }
 
     @include max-screen(#{bp(md)}) {
-      position: relative;
-      right: auto;
-      bottom: auto;
-      margin-top: 48px;
-
-      li {
-        text-align: left;
-      }
-
-      ul {
-        display: flex;
-        gap: 32px;
-      }
+      display: none;
     }
   }
 }

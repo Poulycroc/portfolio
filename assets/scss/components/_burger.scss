@@ -1,4 +1,7 @@
+@use "../configs/breakpoints" as *;
 @use "@poulycroc/sass-tools/tools/mixins" as *;
+@use "@poulycroc/sass-tools/tools/rfs" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
 
 button.burgerbtn {
   @include size(30px, 20px);
@@ -52,14 +55,12 @@ button.burgerbtn {
   }
 }
 
+// Full-screen menu overlay
 .full-screen-menu {
   @include pos(f, auto, 0, 0, 0);
   @include size(100vw, 0);
   overflow: hidden;
   transition: height 300ms ease-in-out;
-  /* background-color: color-mix(in srgb, var(--bg) 20%, transparent); */
-  /* -webkit-backdrop-filter: blur(16px); */
-  /* backdrop-filter: blur(16px); */
   background-color: var(--bg);
 
   &::before,
@@ -82,11 +83,182 @@ button.burgerbtn {
   }
 
   &.active {
+    top: 0;
+
     &,
     &::before,
     &::after {
       height: 100vh;
     }
+
+    .menu-content {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @for $i from 1 through 6 {
+      .menu-link:nth-child(#{$i}) {
+        animation: menuLinkIn 0.4s ease-out #{0.4 + $i * 0.06}s forwards;
+      }
+    }
+
+    .menu-aside {
+      animation: menuLinkIn 0.5s ease-out 0.7s forwards;
+    }
+  }
+}
+
+// Menu content
+.menu-content {
+  position: relative;
+  z-index: 10;
+  @include size(f, 100vh);
+  display: flex;
+  padding: 100px 0 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  max-width: var(--grid);
+  margin: 0 auto;
+
+  @include max-screen(#{bp(lg)}) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include max-screen(#{bp(md)}) {
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    gap: 0;
+  }
+}
+
+// Navigation links
+.menu-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  @include max-screen(#{bp(md)}) {
+    justify-content: flex-start;
+    padding-top: 80px;
+    flex: 0;
+  }
+}
+
+.menu-link {
+  @include rfs(52px);
+  @include lH(60);
+  font-weight: 800;
+  color: var(--font);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family:
+    Helvetica Neue Bold,
+    Helvetica Neue,
+    arial,
+    sans-serif;
+  letter-spacing: -1px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: color 0.2s;
+
+  &:hover {
+    color: var(--bg-lighter);
+  }
+
+  @include max-screen(#{bp(md)}) {
+    @include rfs(36px);
+  }
+}
+
+// Aside info
+.menu-aside {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  opacity: 0;
+  transform: translateY(20px);
+
+  @include max-screen(#{bp(md)}) {
+    width: 100%;
+    gap: 24px;
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: flex-end;
+  }
+}
+
+.menu-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+
+  @include max-screen(#{bp(md)}) {
+    align-items: flex-end;
+    min-width: auto;
+  }
+
+  .menu-info-label {
+    @include rfs(12px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.35;
+    margin-bottom: 4px;
+  }
+
+  a {
+    @include rfs(14px);
+    color: var(--font);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.menu-locales {
+  display: flex;
+  gap: 12px;
+
+  a {
+    @include rfs(14px);
+    color: var(--font);
+    text-decoration: none;
+    opacity: 0.4;
+    font-weight: 700;
+    transition: opacity 0.2s;
+
+    &.active {
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@keyframes menuLinkIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

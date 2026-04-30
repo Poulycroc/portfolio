@@ -1,0 +1,117 @@
+@use "../configs/breakpoints" as *;
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+@use "@poulycroc/sass-tools/tools/rfs" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
+
+.my-projects {
+  padding: 80px 0;
+}
+
+.section-label {
+  @include rfs(14px);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.5;
+  margin-bottom: 40px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: var(--font);
+  transition: opacity 0.3s;
+
+  &:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  .project-index {
+    @include rfs(14px);
+    font-family: monospace;
+    flex-shrink: 0;
+    width: 40px;
+  }
+
+  .project-info {
+    flex: 1;
+  }
+
+  .project-name {
+    @include rfs(48px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    font-family:
+      Helvetica Neue Bold,
+      Helvetica Neue,
+      arial,
+      sans-serif;
+    text-transform: uppercase;
+
+    @include max-screen(#{bp(md)}) {
+      @include rfs(32px);
+    }
+  }
+
+  .project-card-skills {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    span {
+      @include rfs(13px);
+      opacity: 0.4;
+      transition: opacity 300ms;
+    }
+
+    .skill-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--font);
+      opacity: 0.25;
+      flex-shrink: 0;
+    }
+  }
+
+  .project-year {
+    @include rfs(13px);
+    flex-shrink: 0;
+    white-space: nowrap;
+
+    @include max-screen(#{bp(md)}) {
+      display: none;
+    }
+  }
+
+  .project-index,
+  .project-year {
+    opacity: 0.3;
+    transition: opacity 300ms;
+  }
+
+  &:hover {
+    .project-index,
+    .project-year {
+      opacity: 0.15;
+    }
+    .project-card-skills span {
+      opacity: 0.2;
+    }
+  }
+}

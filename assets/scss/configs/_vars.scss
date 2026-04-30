@@ -4,8 +4,8 @@
 :root {
   --grid-sm: #{bp(sm)}; // 575px
   --grid-md: #{bp(md)}; // 767px
-  --grid-lg: #{bp(lg)}; // 991px
-  --grid: #{bp(xl)}; // 1296px
+  --grid-xl: #{bp(xl)}; // 1295px
+  --grid: #{bp(lg)}; // 991px 
   --grid-gap: 24px;
   --small-gap: 12px;
   --header-height: 60px;

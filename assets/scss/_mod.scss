@@ -1,5 +1,9 @@
 @use "@poulycroc/sass-tools/tools/mixins" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg);
   color: var(--font);
