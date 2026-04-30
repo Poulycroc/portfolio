@@ -1,5 +1,6 @@
 @use "@poulycroc/sass-tools/tools/mixins" as *;
 
+// entranceAnimatedTextChar (project pages)
 span.animated-text-container {
   @include size(f);
   display: block;
@@ -41,6 +42,33 @@ span.animated-text-container {
   }
   80% {
     opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// heroAnimatedText (landing hero)
+.hero-animated-text {
+  display: inline;
+
+  .hero-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: heroCharDrop 300ms ease-in-out forwards;
+  }
+}
+
+@keyframes heroCharDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px);
   }
   100% {
     opacity: 1;

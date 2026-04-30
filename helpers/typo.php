@@ -19,9 +19,32 @@ function entranceAnimatedTextChar($text, $options = [])
             $delay = $options['delay'] + $ci * $options['stagger'];
             $c = $char === ' ' ? '&nbsp;' : htmlspecialchars($char);
             $display = "<i>{$c}</i>";
-            $html .= "<span class=\"animated-char {$options['class']}\" style=\"animation-delay: {$delay}ms; animation-duration: {$options['duration']}ms;\">{$display}</span>";
+            $attr = "class=\"animated-char {$options['class']}\" style=\"animation-delay: {$delay}ms; animation-duration: {$options['duration']}ms;\"";
+            $html .= "<span {$attr}>{$display}</span>";
         }
         $html .= '</span>';
+    }
+
+    $html .= '</span>';
+
+    return $html;
+}
+
+function heroAnimatedText($text, $options = [])
+{
+    $options = array_merge([
+        'delay' => 0,
+        'stagger' => 35,
+        'class' => '',
+    ], $options);
+
+    $chars = preg_split('//u', $text, -1, PREG_SPLIT_NO_EMPTY);
+    $html = '<span class="hero-animated-text">';
+
+    foreach ($chars as $i => $char) {
+        $delay = $options['delay'] + $i * $options['stagger'];
+        $display = $char === ' ' ? '&nbsp;' : htmlspecialchars($char);
+        $html .= "<span class=\"hero-char {$options['class']}\" style=\"animation-delay: {$delay}ms\">{$display}</span>";
     }
 
     $html .= '</span>';
