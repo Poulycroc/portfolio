@@ -30,7 +30,6 @@
 	</div>
 </section>
 
-
 <section class="about-me" id="about">
 	<div class="container">
 		<h2 class="section-title reveal"><?= scribe('home-aboutTitle', [':years' => experienceYears()]); ?></h2>
@@ -46,6 +45,7 @@
 		</div>
 	</div>
 </section>
+
 <section class="my-projects" id="projects">
 	<div class="container">
 		<h2 class="section-label reveal"><?= scribe('home-projectsTitle'); ?></h2>

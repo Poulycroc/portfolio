@@ -15,6 +15,7 @@ header.main {
   }
 
   a.brand-logo {
+    cursor: pointer;
     display: block;
     @include size(40px);
     cursor: pointer;

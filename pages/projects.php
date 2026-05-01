@@ -1,7 +1,5 @@
 <?php
-
 define('ROUTES', ['*']);
-
 $slug = path(2);
 
 if (! $slug || ! isset(HELPERS['projects'][$slug])) {
@@ -38,21 +36,37 @@ relay('metaDescription', $article['meta']['description'] ?? '');
 <section class="project-detail reveal">
 	<div class="project-block">
 		<?php if (! empty($article['meta']['description'])) { ?>
-			<div class="project-section">
-				<p class="project-description"><?= $article['meta']['description']; ?></p>
-			</div>
+			<article class="project-section">
+				<?php if (is_array(($article['meta']['description']))) { ?>
+					<?php foreach ($article['meta']['description'] as $paragraph) { ?>
+						<p class="project-description"><?= $paragraph; ?></p>
+					<?php } ?>
+				<?php } else { ?>
+					<p class="project-description"><?= $article['meta']['description']; ?></p>
+				<?php } ?>
+			</article>
 		<?php } ?>
 
 		<?php if (! empty($article['meta']['role'])) { ?>
 			<div class="project-section">
 				<h2><?= scribe('labels-role') ?? 'Role'; ?></h2>
-				<p><?= $article['meta']['role']; ?></p>
+				<?php if (is_array($article['meta']['role'])) { ?>
+					<ul>
+						<?php foreach ($article['meta']['role'] as $role) { ?>
+							<li><?= $role; ?></li>
+						<?php } ?>
+					</ul>
+				<?php } else { ?>
+					<p><?= $article['meta']['role']; ?></p>
+				<?php } ?>
 			</div>
 		<?php } ?>
 
 		<?php foreach ($article['sections'] as $heading => $html) {
-			if ($heading === '_intro') continue;
-		?>
+		    if ($heading === '_intro') {
+		        continue;
+		    }
+		    ?>
 		<div class="project-section">
 			<h2><?= $heading; ?></h2>
 			<?= $html; ?>
@@ -73,42 +87,26 @@ relay('metaDescription', $article['meta']['description'] ?? '');
 	</div>
 </section>
 
-<section class="project-bento reveal">
-	<div class="project-block">
-		<div class="bento-grid">
-			<?php
-			$picsDir = APP['DIR'] . "content/projects/{$slug}/pics";
-			$pics = is_dir($picsDir) ? glob("{$picsDir}/*.{jpg,jpeg,png,webp}", GLOB_BRACE) : [];
+<?php
+	$picsDir = APP['DIR']."content/projects/{$slug}/pics";
+	$pics = is_dir($picsDir) ? glob("{$picsDir}/*.{jpg,jpeg,png,webp}", GLOB_BRACE) : [];
 
-			if (! empty($pics)) {
-				foreach ($pics as $i => $pic) { ?>
-					<div class="bento-item bento-item-<?= $i; ?>">
-						<img
-							src="/<?= str_replace(APP['DIR'], '', $pic); ?>"
-							alt="<?= $article['meta']['title']; ?>"
-							loading="lazy"
-						/>
-					</div>
-				<?php }
-			} else {
-				$sizes = [
-					['w' => 800, 'h' => 600],
-					['w' => 600, 'h' => 400],
-					['w' => 600, 'h' => 800],
-					['w' => 800, 'h' => 400],
-					['w' => 400, 'h' => 400],
-					['w' => 400, 'h' => 600],
-				];
-				foreach ($sizes as $i => $size) { ?>
-					<div class="bento-item bento-item-<?= $i; ?>">
-						<img
-							src="https://picsum.photos/<?= $size['w']; ?>/<?= $size['h']; ?>?random=<?= crc32($slug . $i); ?>"
-							alt="<?= $article['meta']['title']; ?> preview"
-							loading="lazy"
-						/>
-					</div>
-				<?php }
-			} ?>
+	if (! empty($pics)) {
+?>
+	<section class="project-bento reveal">
+		<div class="project-block">
+			<div class="bento-grid">
+				<?php
+					foreach ($pics as $i => $pic) { ?>
+						<div class="bento-item bento-item-<?= $i; ?>">
+							<img
+								src="/<?= str_replace(APP['DIR'], '', $pic); ?>"
+								alt="<?= $article['meta']['title']; ?>"
+								loading="lazy"
+							/>
+						</div>
+					<?php } ?>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+<?php } ?>
