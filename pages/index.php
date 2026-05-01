@@ -1,7 +1,7 @@
 <?php relay('title', 'Portfolio - Maxime Bartier'); ?>
 
 <section class="hero">
-	<div class="container full-h">
+	<div class="container">
 		<div class="hero-content">
 			<h1 class="hero-title">
 				<span class="hero-line hero-line--accent hero-fade"><?= scribe('home-heroLine1'); ?></span>
@@ -14,16 +14,18 @@
 		</div>
 
 		<div class="hero-bullets hero-fade">
-			<ul>
-				<li>
-					<h5><?= experienceYears(); ?>+</h5>
-					<span><?= scribe('hero-bullets--expyears'); ?></span>
-				</li>
-				<li>
-					<h5><?= count(HELPERS['projects']); ?></h5>
-					<span><?= scribe('hero-bullets--projects-count'); ?></span>
-				</li>
-			</ul>
+			<div class="container">
+				<ul>
+					<li>
+						<h5><?= experienceYears(); ?>+</h5>
+						<span><?= scribe('hero-bullets--expyears'); ?></span>
+					</li>
+					<li>
+						<h5><?= count(HELPERS['projects']); ?></h5>
+						<span><?= scribe('hero-bullets--projects-count'); ?></span>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>

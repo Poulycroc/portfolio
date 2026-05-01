@@ -14,6 +14,7 @@ section.hero {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    height: calc(100vh - var(--header-height));
   }
 
   .hero-content {
@@ -24,6 +25,10 @@ section.hero {
         display: flex;
         justify-content: flex-end;
       }
+    }
+    @include max-screen(#{bp(sm)}) {
+      padding-left: 40px;
+      padding-right: 40px;
     }
   }
 

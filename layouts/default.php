@@ -6,6 +6,11 @@
 			<meta name="description" content="<?= relay('metaDescription') ?? scribe('metaDescription'); ?>" />
 			<meta name="author" content="Maxime Bartier" />
 
+			<!-- Favicon -->
+			<link rel="icon" type="image/png" href="/assets/img/fav-light.png" media="(prefers-color-scheme: dark)" />
+			<link rel="icon" type="image/png" href="/assets/img/fav-dark.png" media="(prefers-color-scheme: light)" />
+			<link rel="apple-touch-icon" href="/assets/img/fav-light.png" />
+
 			<!-- Open Graph -->
 			<meta property="og:type" content="website" />
 			<meta property="og:title" content="<?= relay('title') ?? SITE; ?>" />
