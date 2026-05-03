@@ -1,0 +1,77 @@
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+
+// entranceAnimatedTextChar (project pages)
+span.animated-text-container {
+  @include size(f);
+  display: block;
+  position: relative;
+
+  .animated-text-level {
+    @include pos(a, auto, auto, 0, 0);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fullTextEntrance 300ms ease-in-out forwards;
+
+    span.animated-char {
+      display: block;
+      position: relative;
+      @include size(auto, f);
+      @include pos(r, auto, 0, 0, 0);
+      overflow: hidden;
+      transform: translateY(10px);
+      animation: charEntrance ease-in-out forwards;
+    }
+  }
+}
+
+@keyframes charEntrance {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes fullTextEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// heroAnimatedText (landing hero)
+.hero-animated-text {
+  display: inline;
+
+  .hero-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: heroCharDrop 300ms ease-in-out forwards;
+  }
+}
+
+@keyframes heroCharDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

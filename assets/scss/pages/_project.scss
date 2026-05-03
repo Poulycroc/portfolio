@@ -1,0 +1,159 @@
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+@use "@poulycroc/sass-tools/tools/rfs" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
+
+section {
+  &.project-hero {
+    @include size(f, 80px);
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    align-items: flex-end;
+
+    .project-block {
+      padding-bottom: 10px;
+      &::after {
+        content: "";
+        background-color: var(--font);
+        @include size(f, 1px);
+        opacity: 0;
+        transform: translateY(2px);
+        @include pos(a, auto, 0, 0, 0);
+        animation: separatorAppear 300ms ease-in-out forwards;
+        animation-delay: 300ms;
+      }
+    }
+
+    h1 {
+      font-weight: 800;
+      @include rfs(60px);
+      @include lH(60);
+      font-family:
+        Helvetica Neue Bold,
+        Helvetica Neue,
+        arial,
+        sans-serif;
+    }
+    span.project-year {
+      @include pos(a, auto, 0, 10px, auto);
+      transform: translateY(10px);
+      opacity: 0;
+      animation: yearAppear 300ms ease-in-out forwards;
+      animation-delay: 500ms;
+      @include max-screen(700px) {
+        right: 20px;
+      }
+    }
+  }
+
+  &.project-bento {
+    margin-top: 40px;
+  }
+}
+
+.project-block {
+  @include size(f, auto);
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  @include max-screen(700px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.project-section {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  h2 {
+    @include rfs(24px);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  p, li {
+    @include rfs(16px);
+    line-height: 1.7;
+    opacity: 0.75;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 0;
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag,
+.tech-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  @include rfs(14px);
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0.7;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;
+  gap: 12px;
+
+  .bento-item {
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      @include size(100%);
+      object-fit: cover;
+    }
+
+    // Varied sizes for bento layout
+    &.bento-item-0 {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+    &.bento-item-2 {
+      grid-row: span 1;
+    }
+    &.bento-item-3 {
+      grid-column: span 1;
+    }
+  }
+}
+
+@keyframes separatorAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes yearAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

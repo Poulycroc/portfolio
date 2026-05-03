@@ -1,0 +1,18 @@
+@use "configs/breakpoints" as *;
+
+@use "configs/vars";
+@use "configs/reset";
+@use "configs/grid";
+@use "configs/typo";
+
+@use "components/header";
+@use "components/burger";
+@use "components/animated-char";
+@use "components/landing-hero";
+@use "components/about-me";
+@use "components/project-list";
+@use "components/footer";
+
+@use "pages/project";
+
+@use "mod";

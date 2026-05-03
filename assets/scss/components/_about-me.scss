@@ -1,0 +1,46 @@
+@use "../configs/breakpoints" as *;
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+@use "@poulycroc/sass-tools/tools/rfs" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
+
+section.about-me {
+  padding: 200px 0;
+
+  @include max-screen(#{bp(md)}) {
+    padding: 100px 0;
+  }
+
+  h2.section-title {
+    @include rfs(62px);
+    @include lH(60);
+    font-weight: 400;
+    margin-bottom: 16px;
+
+    @include max-screen(#{bp(md)}) {
+      @include rfs(36px);
+      @include lH(42);
+    }
+  }
+
+  .content {
+    padding-top: 40px;
+
+    @include max-screen(#{bp(md)}) {
+      flex-direction: column;
+
+      .col-6, .col-18 {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    article {
+      @include rfs(16px);
+      line-height: 1.7;
+
+      p:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

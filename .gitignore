@@ -1,3 +1,14 @@
+.DS_Store
+
+# AI stuff
+.superpowers/
+docs/
+.claude/
+
+# dist assets
+scripts/*
+styles/*
+
 # Logs
 logs
 *.log

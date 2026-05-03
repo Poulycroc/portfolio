@@ -1,0 +1,73 @@
+@use "../configs/breakpoints" as *;
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+@use "@poulycroc/sass-tools/tools/rfs" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
+
+footer#contact {
+  padding: 80px 0 40px;
+
+  .footer-cta {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .footer-label {
+    display: block;
+    @include rfs(16px);
+    opacity: 0.4;
+    margin-bottom: 16px;
+  }
+
+  .footer-email {
+    display: inline-block;
+    @include rfs(36px);
+    font-weight: 700;
+    color: var(--font);
+    text-decoration: none;
+    transition: opacity 0.3s;
+
+    @include max-screen(#{bp(sm)}) {
+      @include rfs(24px);
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 24px;
+
+    @include max-screen(#{bp(md)}) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+  .footer-links,
+  .footer-sites {
+    display: flex;
+    gap: 20px;
+
+    a {
+      @include rfs(14px);
+      color: var(--font);
+      opacity: 0.4;
+      text-decoration: none;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .footer-copy {
+    @include rfs(13px);
+    opacity: 0.25;
+  }
+}

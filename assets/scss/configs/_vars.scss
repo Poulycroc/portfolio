@@ -1,0 +1,17 @@
+@use "breakpoints" as *;
+
+// ─── Light theme ──────────────────────────────────────────────────────────────
+:root {
+  --grid-sm: #{bp(sm)}; // 575px
+  --grid-md: #{bp(md)}; // 767px
+  --grid-xl: #{bp(xl)}; // 1295px
+  --grid: #{bp(lg)}; // 991px 
+  --grid-gap: 24px;
+  --small-gap: 12px;
+  --header-height: 60px;
+
+  --bg: #232937;
+  --bg-lighter: #7390aa99;
+  --bg-darker: #23293799;
+  --font: #e4f0fb;
+}

@@ -1,0 +1,35 @@
+@use "@poulycroc/sass-tools/tools/mixins" as *;
+
+header.main {
+  @include size(f, var(--header-height));
+  @include pos(f, 0, 0, auto, 0);
+  z-index: 1000000;
+  transition:
+    background 0.3s,
+    backdrop-filter 0.3s;
+
+  &.scrolled {
+    background: rgba(35, 41, 55, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  a.brand-logo {
+    cursor: pointer;
+    display: block;
+    @include size(40px);
+    cursor: pointer;
+    animation: logoAppear 600ms ease-in-out forwards;
+  }
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
