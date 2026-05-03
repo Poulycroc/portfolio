@@ -1,5 +1,6 @@
 @use "@poulycroc/sass-tools/tools/mixins" as *;
 @use "@poulycroc/sass-tools/tools/rfs" as *;
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
 
 section {
   &.project-hero {
@@ -39,6 +40,9 @@ section {
       opacity: 0;
       animation: yearAppear 300ms ease-in-out forwards;
       animation-delay: 500ms;
+      @include max-screen(700px) {
+        right: 20px;
+      }
     }
   }
 
@@ -52,6 +56,10 @@ section {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
+  @include max-screen(700px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 .project-section {
