@@ -59,7 +59,7 @@
 						<div class="menu-info">
 							<span class="menu-info-label"><?= scribe('menu-socials'); ?></span>
 							<a href="https://github.com/Poulycroc" target="_blank" rel="noopener">GitHub</a>
-							<a href="https://www.linkedin.com/in/maxime-bartier/" target="_blank" rel="noopener">LinkedIn</a>
+							<a href="https://www.linkedin.com/in/maxime-bartier-1472b633/" target="_blank" rel="noopener">LinkedIn</a>
 						</div>
 
 						<div class="menu-info">
@@ -94,7 +94,7 @@
 				<div class="footer-bottom">
 					<div class="footer-links">
 						<a href="https://github.com/Poulycroc" target="_blank" rel="noopener">GitHub</a>
-						<a href="https://www.linkedin.com/in/maxime-bartier/" target="_blank" rel="noopener">LinkedIn</a>
+						<a href="https://www.linkedin.com/in/maxime-bartier-1472b633/" target="_blank" rel="noopener">LinkedIn</a>
 					</div>
 
 					<div class="footer-sites">
