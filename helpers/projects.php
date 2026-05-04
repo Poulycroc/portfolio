@@ -16,7 +16,10 @@ foreach (glob("{$dir}/*/") as $projectDir) {
     'skills' => $meta['skills'] ?? [],
     'tech' => $meta['tech'] ?? [],
     'showOnLanding' => $meta['showOnLanding'] ?? false,
+    'order' => (int) ($meta['order'] ?? 99),
   ];
 }
+
+uasort($projects, fn($a, $b) => $a['order'] - $b['order']);
 
 return $projects;
