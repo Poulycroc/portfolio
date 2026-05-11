@@ -1,6 +1,7 @@
 @use "@poulycroc/sass-tools/tools/mixins" as *;
 @use "@poulycroc/sass-tools/tools/rfs" as *;
 @use "@poulycroc/sass-tools/tools/media-queries" as *;
+@use "../configs/breakpoints" as *;
 
 section {
   &.project-hero {
@@ -136,8 +137,10 @@ section {
       grid-column: span 1;
     }
 
-    &:not(.bento-item-0) {
-      grid-column: span 3 / span 3;
+    @include max-screen(bp(md)) {
+      &:not(.bento-item-0) {
+        grid-column: span 3 / span 3;
+      }
     }
   }
 }
