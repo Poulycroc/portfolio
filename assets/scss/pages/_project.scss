@@ -76,7 +76,8 @@ section {
     margin-bottom: 12px;
   }
 
-  p, li {
+  p,
+  li {
     @include rfs(16px);
     line-height: 1.7;
     opacity: 0.75;
@@ -133,6 +134,10 @@ section {
     }
     &.bento-item-3 {
       grid-column: span 1;
+    }
+
+    &:not(.bento-item-0) {
+      grid-column: span 3 / span 3;
     }
   }
 }
