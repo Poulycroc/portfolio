@@ -1,0 +1,99 @@
+@use "@poulycroc/sass-tools/tools/media-queries" as *;
+@use "../configs/breakpoints" as *;
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 10;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.lightbox-swiper {
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+
+    @include max-screen(bp(md)) {
+      padding: 50px 0 0;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 6px;
+      user-select: none;
+
+      @include max-screen(bp(md)) {
+        max-height: 100vh;
+        width: 100%;
+        border-radius: 0;
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #fff;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    @include max-screen(bp(md)) {
+      display: none;
+    }
+  }
+
+  .swiper-pagination {
+    @include max-screen(bp(md)) {
+      display: none;
+    }
+  }
+
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.5;
+
+    &-active {
+      opacity: 1;
+    }
+  }
+}
