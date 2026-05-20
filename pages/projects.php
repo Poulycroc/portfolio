@@ -110,3 +110,40 @@ relay('metaDescription', $article['meta']['description'] ?? '');
 		</div>
 	</section>
 <?php } ?>
+
+<?php
+	$slugs = array_keys(HELPERS['projects']);
+	$currentIndex = array_search($slug, $slugs);
+
+	$prevArticle = null;
+	$nextArticle = null;
+
+	if ($currentIndex > 0) {
+		$prevSlug = $slugs[$currentIndex - 1];
+		$prevArticle = content("projects/{$prevSlug}/{$locale}.md") ?? content("projects/{$prevSlug}/en.md");
+	}
+
+	if ($currentIndex < count($slugs) - 1) {
+		$nextSlug = $slugs[$currentIndex + 1];
+		$nextArticle = content("projects/{$nextSlug}/{$locale}.md") ?? content("projects/{$nextSlug}/en.md");
+	}
+?>
+
+<section class="project-nav reveal">
+	<div class="project-block">
+		<div class="project-nav-links">
+			<?php if ($prevArticle) { ?>
+				<a href="<?= path("/projects/{$prevSlug}"); ?>" class="project-nav-link project-nav-link--prev">
+					<span class="project-nav-label"><?= scribe('project-prev') ?? 'Previous project'; ?></span>
+					<span class="project-nav-title"><?= $prevArticle['meta']['title']; ?></span>
+				</a>
+			<?php } ?>
+			<?php if ($nextArticle) { ?>
+				<a href="<?= path("/projects/{$nextSlug}"); ?>" class="project-nav-link project-nav-link--next">
+					<span class="project-nav-label"><?= scribe('project-next') ?? 'Next project'; ?></span>
+					<span class="project-nav-title"><?= $nextArticle['meta']['title']; ?></span>
+				</a>
+			<?php } ?>
+		</div>
+	</div>
+</section>
