@@ -1,5 +1,5 @@
 ---
-title: Sabine Dargent scénographe designer
+title: Sabine Dargent
 description: Site vitrine présentant Sabine Dargent et son univers de scénographie — showroom d'une centaine de projets avec gestion multilingue.
 role: Développeur WordPress en charge de la création du thème custom, de l'adaptation du CMS aux besoins du client et de l'intégration multilingue des projets.
 ---

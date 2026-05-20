@@ -1,5 +1,5 @@
 ---
-title: ISFSC — Formateur Backend
+title: ISFSC
 description: Enseignant en développement web backend à l'ISFSC de Bruxelles — PHP, HTML et WordPress pour des aspirants développeurs.
 role: Formateur en charge de leçons interactives et pratiques, de l'évaluation des progrès et de l'accompagnement personnalisé.
 ---

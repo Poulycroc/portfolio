@@ -1,5 +1,5 @@
 ---
-title: EFP — Frontend Teacher
+title: EFP
 description: Web development teacher at EFP Brussels — teaching ReactJS, HTML, CSS, JavaScript and PHP to a new generation of developers.
 role: Teacher in charge of designing dynamic hands-on courses, evaluating skills and adapting teaching methods to individual needs.
 ---

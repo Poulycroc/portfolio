@@ -1,5 +1,5 @@
 ---
-title: Sabine Dargent scenographer designer
+title: Sabine Dargent
 description: Showcase website presenting Sabine Dargent and her scenography universe — showroom of about a hundred projects with multilingual support.
 role: WordPress Developer in charge of custom theme creation, CMS adaptation to client needs and multilingual project integration.
 ---

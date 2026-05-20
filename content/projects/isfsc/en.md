@@ -1,5 +1,5 @@
 ---
-title: ISFSC — Backend Teacher
+title: ISFSC
 description: Backend web development teacher at ISFSC Brussels — PHP, HTML and WordPress for aspiring developers.
 role: Teacher in charge of interactive hands-on lessons, progress evaluation and personalized mentoring.
 ---

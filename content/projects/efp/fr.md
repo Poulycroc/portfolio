@@ -1,5 +1,5 @@
 ---
-title: EFP — Formateur Frontend
+title: EFP
 description: Formateur en développement web à l'EFP de Bruxelles — enseignement de ReactJS, HTML, CSS, JavaScript et PHP à une nouvelle génération de développeurs.
 role: Formateur en charge de la conception de cours dynamiques centrés sur l'apprentissage pratique, de l'évaluation des compétences et de l'adaptation pédagogique aux besoins individuels.
 ---
