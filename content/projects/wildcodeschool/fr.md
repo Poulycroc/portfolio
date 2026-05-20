@@ -1,5 +1,5 @@
 ---
-title: Wild Code School — Formateur Web
+title: WildCodeSchool
 description: Formateur en développement web pendant un bootcamp intensif de 10 mois à la Wild Code School de Bruxelles — React, Node.js, HTML, CSS et SQL.
 role: Formateur en charge de l'enseignement, du soutien individuel aux étudiants et de l'adaptation pédagogique sur la durée du bootcamp.
 ---

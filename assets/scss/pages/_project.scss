@@ -145,6 +145,58 @@ section {
   }
 }
 
+section {
+  &.project-nav {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+}
+
+.project-nav-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 24px;
+
+  @include max-screen(700px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.project-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--font);
+  padding: 12px 0;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &--next {
+    text-align: right;
+    margin-left: auto;
+  }
+}
+
+.project-nav-label {
+  @include rfs(12px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.5;
+  font-weight: 700;
+}
+
+.project-nav-title {
+  @include rfs(16px);
+  font-weight: 700;
+}
+
 @keyframes separatorAppear {
   0% {
     opacity: 0;

@@ -6,11 +6,21 @@ $projectsOrder = [
   'gimi',
   'qwerteach',
   'thegreenshot',
+  'geomove',
   'hrpartner',
   'freecaster',
   'wildcodeschool',
   'efp',
   'isfsc',
+  'afroditi',
+  'sabinedargent',
+  'amagirafe',
+  'hotel',
+  'clubavantage',
+  'artdiscovery',
+  'commissioneuropeen',
+  'siligom',
+  'eam',
 ];
 
 $projects = [];

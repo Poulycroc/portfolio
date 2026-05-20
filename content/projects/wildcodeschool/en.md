@@ -1,5 +1,5 @@
 ---
-title: Wild Code School — Web Teacher
+title: WildCodeSchool
 description: Web development teacher during an intensive 10-month bootcamp at Wild Code School Brussels — React, Node.js, HTML, CSS and SQL.
 role: Teacher in charge of teaching, individual student support and pedagogical adaptation throughout the bootcamp.
 ---
