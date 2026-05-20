@@ -68,13 +68,7 @@ function content($path) {
 }
 
 function experienceYears() {
-  $earliest = PHP_INT_MAX;
-  foreach (HELPERS['projects'] as $slug => $project) {
-    if (preg_match('/(\d{4})/', $project['year'], $m)) {
-      $earliest = min($earliest, (int) $m[1]);
-    }
-  }
-  return date('Y') - $earliest;
+  return date('Y') - 2017;
 }
 
 return true;
