@@ -1,6 +1,7 @@
 <?php
 
 $projectsOrder = [
+  'weddpic',
   'letec',
   'moovmoov',
   'gimi',
@@ -17,7 +18,11 @@ $projectsOrder = [
   'amagirafe',
   'hotel',
   'clubavantage',
+  'artconstruction',
   'artdiscovery',
+  'diversiferm',
+  'reddingue',
+  'playpal',
   'commissioneuropeen',
   'siligom',
   'eam',
