@@ -1,11 +1,22 @@
 <?php
 
+$projectsOrder = [
+  'letec',
+  'moovmoov',
+  'gimi',
+  'qwerteach',
+  'thegreenshot',
+  'hrpartner',
+  'freecaster',
+  'wildcodeschool',
+  'efp',
+  'isfsc',
+];
+
 $projects = [];
 $dir = APP['DIR'] . 'content/projects';
 
-foreach (glob("{$dir}/*/") as $projectDir) {
-  $slug = basename($projectDir);
-
+foreach ($projectsOrder as $slug) {
   $shared = content("projects/{$slug}/shared.md");
   if (!$shared) continue;
 
@@ -16,10 +27,7 @@ foreach (glob("{$dir}/*/") as $projectDir) {
     'skills' => $meta['skills'] ?? [],
     'tech' => $meta['tech'] ?? [],
     'showOnLanding' => $meta['showOnLanding'] ?? false,
-    'order' => (int) ($meta['order'] ?? 99),
   ];
 }
-
-uasort($projects, fn($a, $b) => $a['order'] - $b['order']);
 
 return $projects;
