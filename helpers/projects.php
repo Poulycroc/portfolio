@@ -1,6 +1,7 @@
 <?php
 
 $projectsOrder = [
+  'rio',
   'weddpic',
   'letec',
   'moovmoov',
@@ -22,6 +23,9 @@ $projectsOrder = [
   'artdiscovery',
   'diversiferm',
   'reddingue',
+  'mosaccess',
+  'dedikey',
+  'hungryminds',
   'playpal',
   'commissioneuropeen',
   'siligom',
